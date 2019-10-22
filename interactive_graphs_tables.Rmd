@@ -11,5 +11,35 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Here we will learn to make interactive graphs and tables using built-in data sets in R packages.
 
-- Interactive plots (plotly)
-- Interactive tables (DT)
+- Interactive plots: (plotly)
+- Interactive tables: (DT)
+
+```{r, include=FALSE}
+# attache packages
+
+library(tidyverse)
+library(plotly)
+library(DT)
+
+```
+
+## A. Interactive graph of Iris dimensions
+
+Using Edgar Amundson's famous iris dataset
+
+```{r, echo=FALSE}
+
+iris_graph <- ggplot(data = iris, aes(x = Petal.Width, y = Petal.Length))+
+  geom_point(aes(size = Sepal.Width, 
+                 color = Species), 
+             alpha = 0.5)+
+  theme_minimal()+
+  labs(x = "Petal width (cm)", y = "Petal length (cm)", title = "My Iris Graph")
+
+#iris_graph
+# put eval = FALSE in header to tell R not to run this section when it knits
+
+ggplotly(iris_graph)
+
+```
+
