@@ -43,3 +43,11 @@ ggplotly(iris_graph)
 
 ```
 
+## B. Interactive graphs of animals sleep
+
+```{r}
+
+datatable(msleep)
+
+```
+
